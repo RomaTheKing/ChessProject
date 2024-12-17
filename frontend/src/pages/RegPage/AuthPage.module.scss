@@ -1,0 +1,53 @@
+@import "../../scss/variables";
+
+.root {
+  text-align: center;
+  padding-top: 5vh;
+  margin-top: 5vh;
+  margin-left: 35vw;
+  margin-right: 35vw;
+  height: auto;
+  padding-bottom: 5vh;
+}
+
+.title {
+  margin-bottom: 2vh;
+  font-size: xx-large;
+  text-align: center;
+}
+
+.name_title {
+  left: -8vw;
+  top: 2vh;
+  position: relative;
+  text-align: start;
+}
+
+.login_title {
+  left: -7.4vw;
+  top: 2vh;
+  position: relative;
+  text-align: start;
+}
+
+.password_title {
+  left: -7vw;
+  top: 2vh;
+  position: relative;
+  text-align: start;
+}
+
+.password_repeat_title {
+  left: -3.2vw;
+  top: 2vh;
+  position: relative;
+  text-align: start;
+}
+
+.reg_link {
+  cursor: pointer;
+  color: $gray-x-light;
+  &:hover {
+    color: $gray-x-x-light;
+  }
+}

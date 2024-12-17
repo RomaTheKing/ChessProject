@@ -1,0 +1,16 @@
+$light: 20;
+
+$black: #2f2f2f;
+$background: #000000;
+
+$gray: rgb(25, 25, 25);
+$gray-light: rgb(25 + $light, 25 + $light, 25 + $light);
+$gray-x-light: rgb(128, 128, 128);
+$gray-x-x-light: rgb(128 + $light, 128 + $light, 128 + $light);
+
+$aqua: aqua;
+$blue: rgb(3, 107, 186);
+$blue-light: rgb(3 + $light, 107 + $light, 186 + $light);
+
+$wheat: rgb(245, 222, 179);
+$wheat-light: rgb(245 + $light, 222 + $light, 179 + $light);

@@ -1,0 +1,49 @@
+@import "../variables";
+.root {
+  input {
+    outline: none;
+    text-align: center;
+    margin-top: 2.5vh;
+    margin-bottom: 2.5vh;
+    width: 20vw;
+    height: 5vh;
+    border-radius: 20px;
+    border-width: 2px;
+    //   border-color: gray-light;
+    background-color: $gray;
+    &:hover {
+      background-color: $gray-light;
+      border-color: $black;
+    }
+    &:focus {
+      background-color: $gray-light;
+      border-color: $wheat;
+    }
+  }
+
+  button {
+    margin-top: 2.5vh;
+    border-radius: 20px;
+    text-align: center;
+    background-color: $blue;
+    color: $wheat;
+    font-weight: 500;
+    width: 13vw;
+    height: 5vh;
+    &:hover {
+      color: $wheat-light;
+      background-color: $blue-light;
+      cursor: pointer;
+    }
+  }
+
+  div {
+    background-color: $black;
+    // margin-left: 20vw;
+    // margin-right: 20vw;
+  }
+
+  text {
+    color: $wheat;
+  }
+}
