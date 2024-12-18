@@ -44,7 +44,9 @@
 .search {
   width: 150px;
   outline: none;
-  text-align: center;
+  text-align: start;
+  padding-left: 25px;
+  color: $wheat;
   border-radius: 20px;
   border-width: 2px;
   margin-top: 1.2%;
@@ -52,12 +54,18 @@
   height: 23px;
   //   border-color: gray-light;
   background-color: $gray;
-  &:hover {
-    background-color: $gray-light;
-    border-color: $black;
-  }
   &:focus {
     background-color: $gray-light;
-    border-color: $wheat;
   }
+}
+
+.icon {
+  position: relative;
+  left: 45px;
+  top: 12px;
+  width: 22px;
+  height: 22px;
+  opacity: 0.6;
+  -webkit-filter: invert(100%);
+  filter: invert(100%);
 }
