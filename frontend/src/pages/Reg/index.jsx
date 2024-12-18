@@ -1,7 +1,6 @@
 import React from "react";
 
 import styles from "./AuthPage.module.scss";
-import { Link } from "react-router-dom";
 
 function RegPage() {
   return (
