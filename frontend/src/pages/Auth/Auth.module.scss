@@ -9,7 +9,10 @@
   margin-right: 35vw;
   padding-bottom: 5vh;
   height: auto;
-  .input {
+  text {
+    color: $wheat;
+  }
+  input {
     width: 20vw;
     height: 5vh;
     outline: none;
@@ -28,6 +31,14 @@
       background-color: $gray-light;
       border-color: $wheat;
     }
+  }
+
+  button {
+    border-radius: 20px;
+    margin-top: 2.5vh;
+    font-weight: 500;
+    width: 13vw;
+    height: 5vh;
   }
 }
 

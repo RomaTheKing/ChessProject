@@ -1,24 +1,20 @@
 @import "../variables";
 .root {
-  button {
-    margin-top: 2.5vh;
-    border-radius: 20px;
-    text-align: center;
-    background-color: $blue;
-    color: $wheat;
-    font-weight: 500;
-    width: 13vw;
-    height: 5vh;
-    &:hover {
-      color: $wheat-light;
-      background-color: $blue-light;
-      cursor: pointer;
-    }
-  }
-
   // div {
   //   background-color: $black;
   //   // margin-left: 20vw;
   //   // margin-right: 20vw;
   // }
+}
+
+button {
+  text-align: center;
+  background-color: $blue;
+  color: $wheat;
+  font-weight: 500;
+  &:hover {
+    color: $wheat-light;
+    background-color: $blue-light;
+    cursor: pointer;
+  }
 }
