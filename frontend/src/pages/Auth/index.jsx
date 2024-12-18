@@ -13,7 +13,9 @@ function Auth() {
       <text className={styles.password_title}>Пароль</text>
       <br />
       <input placeholder="Пароль" type="password"></input> <br />
-      <button>Войти</button> <br />
+      <Link to="/home">
+        <button>Войти</button> <br />
+      </Link>
       <Link to="Reg" className={styles.reg_link}>
         Регистрация
       </Link>
