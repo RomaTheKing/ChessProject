@@ -1,8 +1,9 @@
 import React from "react";
 
-import styles from "./AuthPage.module.scss";
+import styles from "./Reg.module.scss";
+import { Link } from "react-router-dom";
 
-function RegPage() {
+function Reg() {
   return (
     <div className={styles.root}>
       <text className={styles.title}>Регистрация</text> <br />
@@ -23,4 +24,4 @@ function RegPage() {
   );
 }
 
-export default RegPage;
+export default Reg;

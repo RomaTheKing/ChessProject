@@ -1,9 +1,9 @@
 import React from "react";
 
-import styles from "./AuthPage.module.scss";
+import styles from "./Auth.module.scss";
 import { Link } from "react-router-dom";
 
-function AuthPage() {
+function Auth() {
   return (
     <div className={styles.root}>
       <text className={styles.title}>Авторизация</text> <br />
@@ -21,4 +21,4 @@ function AuthPage() {
   );
 }
 
-export default AuthPage;
+export default Auth;
