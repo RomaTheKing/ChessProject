@@ -1,6 +1,7 @@
 @import "../../scss/variables";
 
 .root {
+  background-color: $black;
   text-align: center;
   padding-top: 5vh;
   margin-top: 5vh;
@@ -8,6 +9,26 @@
   margin-right: 35vw;
   padding-bottom: 5vh;
   height: auto;
+  .input {
+    width: 20vw;
+    height: 5vh;
+    outline: none;
+    text-align: center;
+    margin-top: 2.5vh;
+    margin-bottom: 2.5vh;
+    border-radius: 20px;
+    border-width: 2px;
+    //   border-color: gray-light;
+    background-color: $gray;
+    &:hover {
+      background-color: $gray-light;
+      border-color: $black;
+    }
+    &:focus {
+      background-color: $gray-light;
+      border-color: $wheat;
+    }
+  }
 }
 
 .title {

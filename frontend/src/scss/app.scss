@@ -3,5 +3,6 @@
 @import "./libs/normalize";
 
 body {
+  overflow-x: hidden;
   background-color: $background;
 }
