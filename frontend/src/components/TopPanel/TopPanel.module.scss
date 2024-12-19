@@ -45,7 +45,7 @@
   width: 150px;
   outline: none;
   text-align: start;
-  padding-left: 25px;
+  position: relative;
   color: $wheat;
   border-radius: 20px;
   border-width: 2px;
@@ -53,19 +53,31 @@
   margin-right: 1.2%;
   height: 23px;
   //   border-color: gray-light;
-  background-color: $gray;
-  &:focus {
-    background-color: $gray-light;
+  input {
+    position: absolute;
+    padding-left: 25px;
+    color: $wheat;
+    border-radius: 20px;
+    border-width: 2px;
+    height: 100%;
+    width: 100%;
+    outline: none;
+    text-align: start;
+    background-color: $gray;
+    &:focus {
+      background-color: $gray-light;
+    }
   }
 }
 
 .icon {
-  position: relative;
-  left: 45px;
-  top: 12px;
+  position: absolute;
+  top: 2.5%;
+  left: 1%;
   width: 22px;
   height: 22px;
   opacity: 0.6;
   -webkit-filter: invert(100%);
   filter: invert(100%);
+  // background-color: red;
 }
