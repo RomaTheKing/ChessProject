@@ -17,8 +17,6 @@
 
 .rootWhite {
   position: relative;
-  //   height: 50px;
-  //   width: 50px;
   background-color: $white;
   grid-column-gap: 12.5%;
   grid-row-gap: 12.5%;
@@ -31,14 +29,18 @@
 }
 
 .idX {
-  font-size: 0.15rem;
+  font-size: 0.6rem;
   position: absolute;
   //   bottom: 120%;
-  left: 80%;
+  left: 88%;
+  font-weight: 600;
+  user-select: none;
 }
 .idY {
-  font-size: 0.15rem;
+  font-size: 0.6rem;
   position: absolute;
-  bottom: 5%;
-  left: 5%;
+  bottom: 3%;
+  left: 3%;
+  font-weight: 600;
+  user-select: none;
 }
