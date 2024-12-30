@@ -1,22 +1,41 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import styles from "./GameBoardTile.module.scss";
 import Unit from "../Unit";
 
-function GameBoardTile({ x, y }) {
-  const [unit, setUnit] = useState(-1);
+function GameBoardTile({ x, y, isInit }) {
+  const [unit, setUnit] = useState("");
 
+  const getStartUnit = (x, y) => {
+    if (y == 2) return "pawm_w";
+    if (y == 7) return "pawm_b";
+
+    if (y < 7 && y > 2) return "";
+
+    let color = "_b";
+    if (y == 1) color = "_w";
+    if (x == 1 || x == 8) return "rook" + color;
+    if (x == 2 || x == 7) return "knight" + color;
+    if (x == 3 || x == 6) return "bishop" + color;
+    if (x == 4) return "queen" + color;
+    if (x == 5) return "king" + color;
+    return "";
+  };
+
+  useEffect(() => {
+    setUnit(getStartUnit(x, y));
+  }, []);
   return (
     <div
-      className={(x + y) % 2 ? styles.rootBlack : styles.rootWhite}
+      className={(x + y) % 2 === 0 ? styles.rootBlack : styles.rootWhite}
       onClick={() => {
         console.log("x: " + x + " y: " + y);
         setUnit(0);
       }}
     >
-      {x == 7 && <text className={styles.idX}>{8 - y}</text>}
-      {y == 7 && <text className={styles.idY}>{"abcdefgh"[x]}</text>}
-      {unit !== -1 && <Unit />}
+      {x == 8 && <text className={styles.idX}>{y}</text>}
+      {y == 1 && <text className={styles.idY}>{"abcdefgh"[x - 1]}</text>}
+      {unit !== "" && <Unit type={unit} />}
     </div>
   );
 }
