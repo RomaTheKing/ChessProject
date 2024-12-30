@@ -1,0 +1,8 @@
+.root {
+  position: relative;
+  left: 10%;
+  top: 10px;
+  display: grid;
+  grid-template-columns: repeat(8, 12px);
+  grid-template-rows: repeat(8, 12px);
+}
