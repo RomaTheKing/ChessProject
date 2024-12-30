@@ -2,7 +2,7 @@ import React from "react";
 
 import styles from "./Home.module.scss";
 import TopPanel from "../../components/TopPanel";
-import Monitor from "../../components/Monitor";
+import Monitor from "../../components/SearchPanel";
 
 function Home() {
   return (
