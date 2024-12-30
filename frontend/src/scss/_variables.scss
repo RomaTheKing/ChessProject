@@ -1,4 +1,5 @@
 $light: 20;
+$dark: 30;
 
 $black: #2f2f2f;
 $background: #000000;
@@ -14,3 +15,7 @@ $blue-light: rgb(3 + $light, 107 + $light, 186 + $light);
 
 $wheat: rgb(245, 222, 179);
 $wheat-light: rgb(245 + $light, 222 + $light, 179 + $light);
+
+$white: rgb(230, 230, 230);
+$white-dark: rgb(230 - $dark, 230 - $dark, 230 - $dark);
+$white-dark-dark: rgb(230 - $dark * 2, 230 - $dark * 2, 230 - $dark * 2);
