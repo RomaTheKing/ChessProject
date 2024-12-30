@@ -1,0 +1,44 @@
+@import "../../../scss/variables";
+
+.rootBlack {
+  position: relative;
+  //   height: 50px;
+  //   width: 50px;
+  background-color: $black;
+  grid-column-gap: 12.5%;
+  grid-row-gap: 12.5%;
+  .idX {
+    color: $white-dark-dark;
+  }
+  .idY {
+    color: $white-dark-dark;
+  }
+}
+
+.rootWhite {
+  position: relative;
+  //   height: 50px;
+  //   width: 50px;
+  background-color: $white;
+  grid-column-gap: 12.5%;
+  grid-row-gap: 12.5%;
+  .idX {
+    color: $gray;
+  }
+  .idY {
+    color: $gray;
+  }
+}
+
+.idX {
+  font-size: 0.15rem;
+  position: absolute;
+  //   bottom: 120%;
+  left: 80%;
+}
+.idY {
+  font-size: 0.15rem;
+  position: absolute;
+  bottom: 5%;
+  left: 5%;
+}
