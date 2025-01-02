@@ -5,33 +5,38 @@ import { Link } from "react-router-dom";
 
 function Reg() {
   return (
-    <div className={styles.root}>
-      <text className={styles.title}>Регистрация</text> <br />
-      <div className={styles.input_div}>
-        <text className={styles.input_title}>Имя</text>
-        <br />
-        <input placeholder="Имя пользователя" type="login"></input>
+    <div>
+      <div className={styles.MainTitle_div}>
+        <text className={styles.MainTitle}>Super Chess</text>
       </div>
-      <br />
-      <div className={styles.input_div}>
-        <text className={styles.input_title}>Логин</text>
+      <div className={styles.root}>
+        <text className={styles.title}>Регистрация</text> <br />
+        <div className={styles.input_div}>
+          <text className={styles.input_title}>Имя</text>
+          <br />
+          <input placeholder="Имя пользователя" type="login"></input>
+        </div>
         <br />
-        <input placeholder="Логин" type="login"></input>
-      </div>
-      <br />
-      <div className={styles.input_div}>
-        <text className={styles.input_title}>Пароль</text>
+        <div className={styles.input_div}>
+          <text className={styles.input_title}>Логин</text>
+          <br />
+          <input placeholder="Логин" type="login"></input>
+        </div>
         <br />
-        <input placeholder="Пароль" type="password"></input>
-      </div>
-      <br />
-      <div className={styles.input_div}>
-        <text className={styles.input_title}>Повторите Пароль</text>
+        <div className={styles.input_div}>
+          <text className={styles.input_title}>Пароль</text>
+          <br />
+          <input placeholder="Пароль" type="password"></input>
+        </div>
         <br />
-        <input placeholder="Повторите Пароль" type="password"></input>
-      </div>
-      <div className={styles.button_div}>
-        <button>Регистрация</button>
+        <div className={styles.input_div}>
+          <text className={styles.input_title}>Повторите Пароль</text>
+          <br />
+          <input placeholder="Повторите Пароль" type="password"></input>
+        </div>
+        <div className={styles.button_div}>
+          <button>Регистрация</button>
+        </div>
       </div>
     </div>
   );

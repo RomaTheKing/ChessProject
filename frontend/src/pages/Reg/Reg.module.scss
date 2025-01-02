@@ -6,8 +6,8 @@
   margin: auto;
   margin-top: 30px;
 
-  padding-bottom: 30px;
-  padding-top: 30px;
+  padding-bottom: 15px;
+  padding-top: 15px;
   height: auto;
   width: 420px;
   text {
@@ -80,4 +80,12 @@
   &:hover {
     color: $gray-x-x-light;
   }
+}
+
+.MainTitle_div {
+  margin: auto;
+  font-size: 3rem;
+  font-weight: 800;
+  color: $white-dark-dark;
+  text-align: center;
 }
