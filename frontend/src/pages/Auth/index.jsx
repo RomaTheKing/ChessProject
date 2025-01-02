@@ -5,27 +5,32 @@ import { Link } from "react-router-dom";
 
 function Auth() {
   return (
-    <div className={styles.root}>
-      <text className={styles.title}>Авторизация</text> <br />
-      <div className={styles.input_div}>
-        <text className={styles.input_title}>Логин</text>
-        <br />
-        <input placeholder="Логин" type="login"></input> <br />
+    <div>
+      <div className={styles.MainTitle_div}>
+        <text className={styles.MainTitle}>Super Chess</text>
       </div>
-      <br />
-      <div className={styles.input_div}>
-        <text className={styles.input_title}>Пароль</text>
+      <div className={styles.root}>
+        <text className={styles.title}>Авторизация</text> <br />
+        <div className={styles.input_div}>
+          <text className={styles.input_title}>Логин</text>
+          <br />
+          <input placeholder="Логин" type="login"></input> <br />
+        </div>
         <br />
-        <input placeholder="Пароль" type="password"></input> <br />
-      </div>
-      <div className={styles.button_div}>
-        <Link to="/home">
-          <button>Войти</button> <br />
+        <div className={styles.input_div}>
+          <text className={styles.input_title}>Пароль</text>
+          <br />
+          <input placeholder="Пароль" type="password"></input> <br />
+        </div>
+        <div className={styles.button_div}>
+          <Link to="/home">
+            <button>Войти</button> <br />
+          </Link>
+        </div>
+        <Link to="Reg" className={styles.reg_link}>
+          Регистрация
         </Link>
       </div>
-      <Link to="Reg" className={styles.reg_link}>
-        Регистрация
-      </Link>
     </div>
   );
 }
