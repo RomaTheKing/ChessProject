@@ -8,9 +8,9 @@ const names = {
   bishop_b: styles.bishop_black,
   queen_b: styles.queen_black,
   king_b: styles.king_black,
-  pawm_b: styles.pawn_black,
+  pawn_b: styles.pawn_black,
 
-  pawm_w: styles.pawn_white,
+  pawn_w: styles.pawn_white,
   king_w: styles.king_white,
   queen_w: styles.queen_white,
   bishop_w: styles.bishop_white,
