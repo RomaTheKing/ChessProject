@@ -6,4 +6,9 @@
   width: 8 * 55px;
   grid-template-columns: repeat(8, 55px);
   grid-template-rows: repeat(8, 55px);
+  background: radial-gradient(
+    transparent 0%,
+    transparent 79%,
+    rgba(20, 85, 0, 0.3) 80%
+  );
 }
