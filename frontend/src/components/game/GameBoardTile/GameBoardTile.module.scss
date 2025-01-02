@@ -4,7 +4,7 @@
   position: relative;
   //   height: 50px;
   //   width: 50px;
-  background-color: $black;
+  background-color: $black !important;
   grid-column-gap: 12.5%;
   grid-row-gap: 12.5%;
   .idX {
@@ -15,9 +15,25 @@
   }
 }
 
+.rootWhite.selected {
+  background: radial-gradient(
+    transparent 0%,
+    transparent 79%,
+    rgba(20, 85, 0, 0.45) 80%
+  );
+}
+
+.rootBlack.selected {
+  background: radial-gradient(
+    transparent 0%,
+    transparent 79%,
+    rgba(39, 167, 0, 0.45) 80%
+  );
+}
+
 .rootWhite {
   position: relative;
-  background-color: $white;
+  background-color: $white !important;
   grid-column-gap: 12.5%;
   grid-row-gap: 12.5%;
   .idX {
@@ -42,5 +58,4 @@
   bottom: 3%;
   left: 3%;
   font-weight: 600;
-  user-select: none;
 }
