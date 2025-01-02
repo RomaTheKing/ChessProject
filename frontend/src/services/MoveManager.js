@@ -6,7 +6,7 @@ export const getColor = (unitName) => {
 const isEnemy = ({ x, y, color, tiles }) => {
   if (x < 1 || x > 8 || y < 1 || y > 8) return false;
   const id = y * 8 + x - 9;
-  return tiles[id] !== undefined && getColor(tiles[id]) === color;
+  return tiles[id] !== "" && getColor(tiles[id]) !== color;
 };
 const isFree = ({ x, y, tiles }) => {
   if (x < 1 || x > 8 || y < 1 || y > 8) return false;
@@ -61,13 +61,21 @@ const movePawn = ({ x, y, color, tiles, selectedTiles }) => {
       selectedTiles[(y + 1) * 8 + x - 1 - 9] = true;
     if (isEnemy({ x: x + 1, y: y + 1, color, tiles }))
       selectedTiles[(y + 1) * 8 + x + 1 - 9] = true;
-    unitMove({ x, y, dx: 0, dy: 1, maxDist: 2, color, tiles, selectedTiles });
+    if (isFree({ x: x, y: y + 1, color, tiles })) {
+      selectedTiles[(y + 1) * 8 + x - 9] = true;
+      if (y == 2 && isFree({ x: x, y: y + 2, color, tiles }))
+        selectedTiles[(y + 2) * 8 + x - 9] = true;
+    }
   } else {
     if (isEnemy({ x: x - 1, y: y - 1, color, tiles }))
       selectedTiles[(y - 1) * 8 + x - 1 - 9] = true;
     if (isEnemy({ x: x + 1, y: y - 1, color, tiles }))
       selectedTiles[(y - 1) * 8 + x + 1 - 9] = true;
-    unitMove({ x, y, dx: 0, dy: -1, maxDist: 2, color, tiles, selectedTiles });
+    if (isFree({ x: x, y: y - 1, color, tiles })) {
+      selectedTiles[(y - 1) * 8 + x - 9] = true;
+      if (y == 7 && isFree({ x: x, y: y - 2, color, tiles }))
+        selectedTiles[(y - 2) * 8 + x - 9] = true;
+    }
   }
 };
 
