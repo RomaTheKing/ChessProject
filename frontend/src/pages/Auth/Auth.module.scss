@@ -21,6 +21,13 @@
   height: 30px;
   position: relative;
   margin-top: 30px;
+  .error {
+    color: rgba($color: #ff0000, $alpha: 0.7);
+    position: absolute;
+    left: 15px;
+    top: 50px;
+    font-size: 0.8rem;
+  }
   .input_title {
     position: absolute;
     text-align: start;
@@ -37,6 +44,7 @@
     border-radius: 20px;
     border-width: 0px;
     background-color: $gray;
+    color: $white-dark-dark;
     &:hover {
       background-color: $gray-light;
       border-color: $black;
