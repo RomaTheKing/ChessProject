@@ -9,11 +9,22 @@
   display: flex;
   align-items: center;
   justify-content: first baseline;
-}
+  // border-style: solid;
+  // border-color: black;
 
-span {
-  height: 100%;
-  min-height: 100%;
-  width: 25%;
-  max-width: 25%;
+  span {
+    height: 100%;
+    min-height: 100%;
+    width: 25%;
+    max-width: 25%;
+    color: $wheat;
+  }
+
+  &:hover {
+    background-color: $white-dark-dark;
+    span {
+      color: $black;
+    }
+    cursor: pointer;
+  }
 }
