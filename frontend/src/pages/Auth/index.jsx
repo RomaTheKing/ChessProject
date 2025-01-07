@@ -2,10 +2,13 @@ import React, { useRef, useState } from "react";
 
 import styles from "./Auth.module.scss";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { auth } from "../../redux/slices/authSlice";
 
 function Auth() {
-  const email = useRef();
-  const password = useRef();
+  const dispatch = useDispatch();
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
 
   const [emailErrorID, setEmailErrorID] = useState(0);
   const [passwordErrorID, setPasswordErrorID] = useState(0);
@@ -20,7 +23,12 @@ function Auth() {
         <div className={styles.input_div}>
           <text className={styles.input_title}>Логин</text>
           <br />
-          <input ref={email} placeholder="Логин" type="login"></input> <br />
+          <input
+            onChange={(event) => setEmail(event.target.value)}
+            placeholder="Логин"
+            type="login"
+          ></input>{" "}
+          <br />
           {emailErrorID === 1 && (
             <text className={styles.error}>Логин не должен быть пустым</text>
           )}
@@ -29,7 +37,11 @@ function Auth() {
         <div className={styles.input_div}>
           <text className={styles.input_title}>Пароль</text>
           <br />
-          <input ref={password} placeholder="Пароль" type="password"></input>
+          <input
+            onChange={(event) => setPassword(event.target.value)}
+            placeholder="Пароль"
+            type="password"
+          ></input>
           <br />
           {passwordErrorID === 1 && (
             <text className={styles.error}>Пароль не должен быть пустым</text>
@@ -41,8 +53,20 @@ function Auth() {
               onClick={() => {
                 setEmailErrorID(0);
                 setPasswordErrorID(0);
-                if (email.current.value === "") setEmailErrorID(1);
-                if (password.current.value === "") setPasswordErrorID(1);
+
+                let isFound = false;
+                if (email === "") {
+                  setEmailErrorID(1);
+                  isFound = true;
+                }
+                if (password === "") {
+                  setPasswordErrorID(1);
+                  isFound = true;
+                }
+
+                if (!isFound) {
+                  dispatch(auth({ email, password }));
+                }
               }}
             >
               Войти
