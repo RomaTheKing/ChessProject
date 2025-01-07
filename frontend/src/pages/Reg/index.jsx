@@ -1,13 +1,20 @@
 import React, { useRef, useState } from "react";
 
 import styles from "./Reg.module.scss";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
+import { regUser } from "../../redux/slices/authSlice";
+import { useDispatch } from "react-redux";
 
 function Reg() {
-  const name = useRef();
-  const email = useRef();
-  const password = useRef();
-  const passwordRepeat = useRef();
+  const dispatch = useDispatch();
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [passwordRepeat, setPasswordRepeat] = useState("");
+  // const name = useRef();
+  // const email = useRef();
+  // const password = useRef();
+  // const passwordRepeat = useRef();
 
   const [nameErrorID, setNameErrorID] = useState(0);
   const [emailErrorID, setEmailErrorID] = useState(0);
@@ -23,7 +30,11 @@ function Reg() {
         <div className={styles.input_div}>
           <text className={styles.input_title}>Имя</text>
           <br />
-          <input ref={name} placeholder="Имя пользователя" type="login"></input>
+          <input
+            onChange={(event) => setName(event.target.value)}
+            placeholder="Имя пользователя"
+            type="login"
+          ></input>
           {nameErrorID === 1 && (
             <text className={styles.error}>
               Имя пользователя не должно быть пустым
@@ -34,7 +45,11 @@ function Reg() {
         <div className={styles.input_div}>
           <text className={styles.input_title}>Логин</text>
           <br />
-          <input ref={email} placeholder="Логин" type="login"></input>
+          <input
+            onChange={(event) => setEmail(event.target.value)}
+            placeholder="Логин"
+            type="login"
+          ></input>
           {emailErrorID === 1 && (
             <text className={styles.error}>Логин не должен быть пустым</text>
           )}
@@ -46,7 +61,11 @@ function Reg() {
         <div className={styles.input_div}>
           <text className={styles.input_title}>Пароль</text>
           <br />
-          <input ref={password} placeholder="Пароль" type="password"></input>
+          <input
+            onChange={(event) => setPassword(event.target.value)}
+            placeholder="Пароль"
+            type="password"
+          ></input>
           {passwordErrorID === 1 && (
             <text className={styles.error}>Пароль не должен быть пустым</text>
           )}
@@ -56,7 +75,7 @@ function Reg() {
           <text className={styles.input_title}>Повторите Пароль</text>
           <br />
           <input
-            ref={passwordRepeat}
+            onChange={(event) => setPasswordRepeat(event.target.value)}
             placeholder="Повторите Пароль"
             type="password"
           ></input>
@@ -70,15 +89,41 @@ function Reg() {
               const regexp = new RegExp(
                 "^[-a-z0-9!#$%&'*+/=?^_`{|}~]+(?:.[-a-z0-9!#$%&'*+/=?^_`{|}~]+)*@(?:[a-z0-9]([-a-z0-9]{0,61}[a-z0-9])?.)*(?:aero|arpa|asia|biz|cat|com|coop|edu|gov|info|int|jobs|mil|mobi|museum|name|net|org|pro|tel|travel|[a-z][a-z])$"
               );
+              let isFound = false;
+
               setNameErrorID(0);
               setEmailErrorID(0);
               setPasswordErrorID(0);
-              if (name.current.value === "") setNameErrorID(1);
-              if (!regexp.test(email.current.value)) setEmailErrorID(2);
-              if (email.current.value === "") setEmailErrorID(1);
-              if (password.current.value !== passwordRepeat.current.value)
+              if (name.length == "") {
+                setNameErrorID(1);
+                isFound = true;
+              }
+              if (!regexp.test(email)) {
+                setEmailErrorID(2);
+                isFound = true;
+              }
+              if (email == "") {
+                setEmailErrorID(1);
+                isFound = true;
+              }
+              if (password !== passwordRepeat) {
                 setPasswordErrorID(2);
-              if (password.current.value === "") setPasswordErrorID(1);
+                isFound = true;
+              }
+              if (password == "") {
+                setPasswordErrorID(1);
+                isFound = true;
+              }
+
+              if (!isFound) {
+                dispatch(
+                  regUser({
+                    userName: name,
+                    email,
+                    password,
+                  })
+                );
+              }
             }}
           >
             Регистрация
