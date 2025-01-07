@@ -8,7 +8,7 @@ public class AddUserRequest {
         this.userName = userName;
         this.email = email;
         this.password = password;
-//        System.out.println(userName + " " + email + " " + password);
+        System.out.println(userName + " " + email + " " + password);
     }
 
     public String getUserName() {

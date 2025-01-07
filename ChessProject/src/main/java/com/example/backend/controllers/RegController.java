@@ -37,7 +37,11 @@ public class RegController {
 //                    .orElseThrow(() -> new RuntimeException("Error, Role ADMIN is not found"));
 //            roles.add(adminRole);
 //        }
+        /*
+            User1 user1@gmail.com 123
+         */
         userRepo.save(new User(request.getUserName(), request.getEmail(), passwordEncoder.encode(request.getPassword())));
+        System.out.println("Add User" + request.getUserName() + " " + request.getEmail() + " " + passwordEncoder.encode(request.getPassword()));
         return ResponseEntity.ok(new SuccessResponse());
     }
 }
