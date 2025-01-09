@@ -5,6 +5,7 @@ import com.example.backend.database.entities.User;
 import com.example.backend.database.repositories.UserRepo;
 import com.example.backend.requests.AuthRequest;
 import com.example.backend.responses.JWTResponse;
+import com.example.backend.responses.MessageResponces.BadResponse;
 import com.example.backend.responses.MessageResponces.SuccessResponse;
 import com.example.backend.services.user.UserDetails;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,6 +44,12 @@ public class AuthController {
 
     @PostMapping("/login")
     public ResponseEntity<?> authUser(@RequestBody AuthRequest authRequest) {
+//        System.out.println(authRequest.getEmail());
+//        System.out.println(userRepo.existsByEmail(authRequest.getEmail()));
+//        System.exit(0);
+        if (!userRepo.existsByEmail(authRequest.getEmail()))
+            return ResponseEntity.badRequest().body(new BadResponse("Invalid email or password", 400));
+
         Authentication authentication = authenticationManager
                 .authenticate(new UsernamePasswordAuthenticationToken(
                         authRequest.getEmail(),

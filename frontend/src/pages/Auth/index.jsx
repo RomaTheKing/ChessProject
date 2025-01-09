@@ -4,11 +4,12 @@ import styles from "./Auth.module.scss";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { auth, clearState } from "../../redux/slices/authSlice";
+import { getToken } from "../../API/api";
 
 function Auth() {
   const dispatch = useDispatch();
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const [emailErrorID, setEmailErrorID] = useState(0);
   const [passwordErrorID, setPasswordErrorID] = useState(0);
@@ -20,7 +21,7 @@ function Auth() {
   useEffect(() => {}, []);
 
   useEffect(() => {
-    if (status === "success") {
+    if (status === "success" && getToken() != undefined) {
       dispatch(clearState());
       navigate("/Home");
     }
