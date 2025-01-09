@@ -1,0 +1,42 @@
+@import "../../../scss/variables";
+
+.root {
+  //   background: red;
+  position: relative;
+  left: 100px;
+  top: 80px;
+  width: 300px;
+  height: 300px;
+  text {
+    margin-top: 50%;
+    font-size: 4rem;
+    font-weight: 600;
+  }
+}
+
+.time_div {
+  position: relative;
+  top: 20%;
+  left: 25%;
+  margin: auto;
+}
+
+.white_div {
+  background-color: $white-dark;
+  width: 100%;
+  height: 50%;
+  padding: auto;
+  border-radius: 0% 0% 70% 70%;
+  text {
+    color: $black;
+  }
+}
+.black_div {
+  width: 100%;
+  height: 50%;
+  background-color: $gray-light;
+  border-radius: 70% 70% 0% 0%;
+  text {
+    color: $white;
+  }
+}

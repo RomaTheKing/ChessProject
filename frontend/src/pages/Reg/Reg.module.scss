@@ -6,7 +6,7 @@
   margin: auto;
   margin-top: 15px;
 
-  padding-bottom: 15px;
+  padding-bottom: 25px;
   padding-top: 15px;
   height: auto;
   width: 420px;
@@ -97,4 +97,11 @@
   font-weight: 800;
   color: $white-dark-dark;
   text-align: center;
+}
+
+.success_message {
+  margin: auto;
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: $green !important;
 }

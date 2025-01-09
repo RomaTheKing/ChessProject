@@ -29,22 +29,30 @@ function GameBoardTile({ x, y, isInit }) {
     return "";
   };
 
-  useEffect(() => {
-    // setUnit(getStartUnit(x, y));
-    if (isInit) {
-      dispatch(addUnit({ name: getStartUnit(x, y), x: x, y: y }));
-    }
-  }, []);
+  // useEffect(() => {
+  //   // setUnit(getStartUnit(x, y));
+  //   if (isInit) {
+  //     dispatch(addUnit({ name: getStartUnit(x, y), x: x, y: y }));
+  //   }
+  // }, []);
+
+  const gameSlice = useSelector((state) => state.gameSlice);
 
   useEffect(() => {
-    setUnit(board.tiles[y * 8 + x - 9]);
-  }, board.tiles);
+    if (gameSlice.tiles[y - 1][x - 1] != unit)
+      setUnit(gameSlice.tiles[y - 1][x - 1]);
+  }, gameSlice.tiles);
 
   useEffect(() => {
-    // console.log(321);
-    // console.log(board.selectedTiles);
     setMovePointActive(board.selectedTiles[y * 8 + x - 9]);
-  }, [board.selectedTiles]);
+  }, [board.selectedTiles[y * 8 + x - 9]]);
+
+  useEffect(() => {
+    if (gameSlice.gameStateStatus === "success")
+      // if (board.selectedTiles[y * 8 + x - 9] !== gameSlice.tiles[y - 1][x - 1])
+      dispatch(addUnit({ name: gameSlice.tiles[y - 1][x - 1], x: x, y: y }));
+  }, [gameSlice.gameStateStatus]);
+
   return (
     <div
       className={
@@ -55,7 +63,6 @@ function GameBoardTile({ x, y, isInit }) {
         // isMovePointActive ? styles.selected : styles.selected)
       }
       onClick={(e) => {
-        // console.log("x: " + x + " y: " + y);
         // setUnit(0);
         dispatch(selectUnit({ x: x, y: y }));
       }}

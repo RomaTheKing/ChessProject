@@ -1,9 +1,9 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import styles from "./Auth.module.scss";
-import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { auth } from "../../redux/slices/authSlice";
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { auth, clearState } from "../../redux/slices/authSlice";
 
 function Auth() {
   const dispatch = useDispatch();
@@ -12,6 +12,39 @@ function Auth() {
 
   const [emailErrorID, setEmailErrorID] = useState(0);
   const [passwordErrorID, setPasswordErrorID] = useState(0);
+  const [isError, setIsError] = useState(false);
+
+  let status = useSelector((state) => state.authSlice.status);
+  const navigate = useNavigate();
+
+  useEffect(() => {}, []);
+
+  useEffect(() => {
+    if (status === "success") {
+      dispatch(clearState());
+      navigate("/Home");
+    }
+    if (status === "error") setIsError(true);
+  }, [status]);
+
+  const onClick = () => {
+    setEmailErrorID(0);
+    setPasswordErrorID(0);
+
+    let isFound = false;
+    if (email === "") {
+      setEmailErrorID(1);
+      isFound = true;
+    }
+    if (password === "") {
+      setPasswordErrorID(1);
+      isFound = true;
+    }
+
+    if (!isFound) {
+      dispatch(auth({ email, password }));
+    }
+  };
 
   return (
     <div>
@@ -48,35 +81,16 @@ function Auth() {
           )}
         </div>
         <div className={styles.button_div}>
-          <Link to="/home">
-            <button
-              onClick={() => {
-                setEmailErrorID(0);
-                setPasswordErrorID(0);
-
-                let isFound = false;
-                if (email === "") {
-                  setEmailErrorID(1);
-                  isFound = true;
-                }
-                if (password === "") {
-                  setPasswordErrorID(1);
-                  isFound = true;
-                }
-
-                if (!isFound) {
-                  dispatch(auth({ email, password }));
-                }
-              }}
-            >
-              Войти
-            </button>{" "}
-            <br />
+          {/* <Link to="/home"> */}
+          <button onClick={onClick}>Войти</button> {/* </Link> */}
+          <Link to="/Reg" className={styles.reg_link}>
+            Регистрация
           </Link>
+          <br />
+          {isError && (
+            <text className={styles.error}>Неверный логин или пароль</text>
+          )}
         </div>
-        <Link to="/Reg" className={styles.reg_link}>
-          Регистрация
-        </Link>
       </div>
     </div>
   );

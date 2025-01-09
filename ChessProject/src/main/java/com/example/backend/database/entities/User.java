@@ -7,20 +7,22 @@ import javax.persistence.Id;
 
 @Entity
 public class User {
+    public static final int INIT_RATING = 1500;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     public long id;
     public String name, email, password;
-
+    public int rating = 1500;
 
     public User() {
 
     }
 
-    public User(String name, String email, String password) {
+    public User(String name, String email, String password, int rating) {
         this.name = name;
         this.email = email;
         this.password = password;
+        this.rating = rating;
     }
 
     public long getId() {
@@ -55,6 +57,14 @@ public class User {
         this.password = password;
     }
 
+    public int getRating() {
+        return rating;
+    }
+
+    public void setRating(int rating) {
+        this.rating = rating;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -62,6 +72,7 @@ public class User {
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
+                ", rating=" + rating +
                 '}';
     }
 }

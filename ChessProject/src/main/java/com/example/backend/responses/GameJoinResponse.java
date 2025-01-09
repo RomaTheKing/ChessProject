@@ -1,9 +1,9 @@
-package com.example.backend.requests;
+package com.example.backend.responses;
 
-public class GameStateRequest {
+public class GameJoinResponse {
     public long gameId, id;
 
-    public GameStateRequest(long gameId, long id) {
+    public GameJoinResponse(long gameId, long id) {
         this.gameId = gameId;
         this.id = id;
     }

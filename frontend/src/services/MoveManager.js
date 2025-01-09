@@ -1,5 +1,5 @@
 export const getColor = (unitName) => {
-  if (unitName === undefined) return "-";
+  if (unitName === undefined || unitName === "") return "-";
   return unitName.substring(unitName.length - 1);
 };
 

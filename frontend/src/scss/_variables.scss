@@ -19,3 +19,7 @@ $wheat-light: rgb(245 + $light, 222 + $light, 179 + $light);
 $white: rgb(230, 230, 230);
 $white-dark: rgb(230 - $dark, 230 - $dark, 230 - $dark);
 $white-dark-dark: rgb(230 - $dark * 2, 230 - $dark * 2, 230 - $dark * 2);
+
+$green: rgb(19, 210, 5);
+$green-light: rgb(19 + $light, 210 + $light, 5 + $light);
+$green-x-light: rgb(19 + $light * 2, 210 + $light * 2, 5 + $light * 2);

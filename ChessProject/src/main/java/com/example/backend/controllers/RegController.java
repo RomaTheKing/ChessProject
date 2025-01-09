@@ -25,6 +25,7 @@ public class RegController {
 
     @PostMapping("/add")
     public ResponseEntity<?> addUser(@RequestBody AddUserRequest request) {
+//        userRepo.deleteAll();
         if (userRepo.existsByEmail(request.getEmail())) {
             System.out.println("User exists");
             return ResponseEntity.badRequest().body(new BadResponse("Email exists", 400));
@@ -40,7 +41,10 @@ public class RegController {
         /*
             User1 user1@gmail.com 123
          */
-        userRepo.save(new User(request.getUserName(), request.getEmail(), passwordEncoder.encode(request.getPassword())));
+        userRepo.save(new User(request.getUserName(),
+                request.getEmail(),
+                passwordEncoder.encode(request.getPassword()),
+                User.INIT_RATING));
         System.out.println("Add User" + request.getUserName() + " " + request.getEmail() + " " + passwordEncoder.encode(request.getPassword()));
         return ResponseEntity.ok(new SuccessResponse());
     }

@@ -18,8 +18,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.util.Optional;
-
 @Controller
 @RequestMapping(path="/api/auth")
 public class AuthController {
@@ -30,7 +28,7 @@ public class AuthController {
     @Autowired
     public UserRepo userRepo;
 
-    public User getUser() {
+    private User getUser() {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         return userRepo.findByEmail(((UserDetails) auth.getPrincipal()).getEmail()).get();
     }
